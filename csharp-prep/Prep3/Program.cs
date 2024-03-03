@@ -22,7 +22,6 @@ do
     if(magic_number > guessing)
     {
         Console.WriteLine("Higher");
-        Console.WriteLine($"Tip: the number is {magic_number}");
     }
     else if(magic_number == guessing){
         Console.Write("Nice, you guessed it :)");

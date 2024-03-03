@@ -27,7 +27,7 @@ class Program
     }
     static void SquareNumber(int integer){
         int squared = integer * integer;
-        Console.WriteLine($"This is the Result:{squared}");
+        Console.WriteLine($"This is the Result: {squared}");
     }
     static void DisplayResult(string UserName, int SquaredNumber){
         Console.WriteLine($"Brother: {UserName} the square of your number is: {SquaredNumber}");
