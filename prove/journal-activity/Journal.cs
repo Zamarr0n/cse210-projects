@@ -14,6 +14,7 @@ class Program
     List <string> list_activities = new List<string>();
     List <string> list_questions = new List<string>();
     List <string> list_data = new List<string>();
+    SavingData new_data = new SavingData();
     string Answer_question;
     string file_name;
     int Answer_number;
@@ -78,7 +79,10 @@ class Program
         }
         Console.Write("Enter the name of the file (Don´t forget to include the .txt extension and write a proper file name): ");
         file_name = Console.ReadLine();
-        Saving_Data(list_data, file_name);
+        new_data.fileName = file_name;
+        new_data.data = list_data;
+        Saving_Data_Process(new_data.data, new_data.fileName);
+        // Saving_Data(list_data, file_name);
     }
     else if(Answer_number == 5){
         Console.WriteLine("The program has ended");
@@ -90,7 +94,10 @@ class Program
 
         // Console.WriteLine("Hello Develop02 World!");
     }
-    public static void Saving_Data(List<string> data , string fileName){
+    
+    
+    // Process to store the data into a list to display it 
+    public static void Saving_Data_Process(List<string> data , string fileName){
         Console.WriteLine("Saving to File ... ");
         DateTime theCurrentTime = DateTime.Now;
         string dateText = theCurrentTime.ToShortDateString();
@@ -102,9 +109,11 @@ class Program
     {
         outputFile.WriteLine($"Date: {dateText}  -  Prompt: {item}");
     }
+    Console.WriteLine("------------------------------------------------------------------");
     // You can use the $ and include variables just like with Console.WriteLine
 }
     }
+    
     public static void ReadingFile(string FileName){
     string[] lines = System.IO.File.ReadAllLines(FileName);
     foreach (string line in lines)
