@@ -66,7 +66,7 @@ class Scripture
         this.reference = new Reference(reference);
         this.words = scripture_meaning.Split(' ').Select(wordText => new Word(wordText)).ToList();
     }
-
+// ________________________________________________________
     public void DisplayScripture()
     {
         Console.WriteLine(reference.ToString());
@@ -83,7 +83,7 @@ class Scripture
         }
         Console.WriteLine();
     }
-
+// ________________________________________________________
     public void HideWord()
     {
         List<Word> visibleWords = words.Where(word => !word.IsHidden).ToList();
@@ -95,6 +95,7 @@ class Scripture
         }
     }
 
+// ________________________________________________________
     public bool AllWordsHidden()
     {
         return words.All(word => word.IsHidden);
