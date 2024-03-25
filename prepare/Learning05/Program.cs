@@ -17,13 +17,8 @@ class Program
 
         foreach (Shape shapes_ in shapes)
         {
-            // Notice that all shapes have a GetColor method from the base class
             string color = shapes_.GetColor();
-
-            // Notice that all shapes have a GetArea method, but the behavior is
-            // different for each type of shape
             double area = shapes_.GetArea();
-
             Console.WriteLine($"The {color} shape has an area of {area}.");
         }
     }
