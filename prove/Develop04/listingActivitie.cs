@@ -37,7 +37,6 @@ public class ListingActivity : Activities{
             limit++;
             pauses++;
         } while (duration != limit);
-
         Console.WriteLine("This is your List: ");
         foreach (var item in User_list)
         {
