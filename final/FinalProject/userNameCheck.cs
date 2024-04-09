@@ -15,6 +15,7 @@ public class userNameCheck{
             {
                 //this separates the data " , ";
             string[] parts = line.Split(",");
+            
             //map the data so it could bring it back to display it to the user.
 
             string UserName = parts[0];
@@ -26,6 +27,7 @@ public class userNameCheck{
             string vacation_fund = parts[6];
             string total_savings = parts[7];
 
+            //Converting each part into integers to latter do the operations needed.
             int salary_integer = int.Parse(salary);
             int freelancing_earnings_integer = int.Parse(freelancing_earnings);
             int rent_integer = int.Parse(rent);

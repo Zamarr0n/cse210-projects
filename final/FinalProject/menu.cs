@@ -4,48 +4,27 @@ using System;
 // of the user.
 
 public class Menu{
-    private string _menu = $@"
 
-Menu Options 
-===============================================
-Please select one of the following options: (Please only enter the number).
-    
-1.- Set a Saving Goal
-2.- Learn about financial education 
-3.- Saving Data
-4.- End Program
-    ";
-    private string menuFunds = $@"
-Please select one of the options:
-===============================================
-(Remember to only enter the number of the Item)
-
-1.- Vacations Fund
-2.- Emergency Fund
-
-        ";
     public string _userInput;
     // private int _userChoice;
     private bool _continue = true;
-    // private string expenses_article = "https://hbr.org/2022/11/5-ways-to-manage-your-personal-finances";
-    // private string stock_market = "https://fortune.com/recommends/investing/how-to-start-investing/";
-    // private string emergency_fund = "https://www.consumerfinance.gov/an-essential-guide-to-building-an-emergency-fund/";
-
     private int user_vacations;
     private int user_emergency;
     financialEducation finance = new financialEducation();
-    SavingGoals savingGoal = new SavingGoals();
+    Goals savingGoal = new Goals();
     Saving save = new Saving();
 
+    Animations animation = new Animations();
 
     public void UserChoice(string userName, int salary, int freelancing_earnings, int rent , int groceries){
         while (_continue == true)
         {
-            Console.WriteLine(_menu);
+            Console.WriteLine(Menu_string());
         int _userInput = int.Parse(Console.ReadLine());
         if(_userInput == 1){
-            Console.WriteLine("Saving Goal");
-            Console.WriteLine(menuFunds);
+            Console.Write("Saving Goal");
+            animation.CountdownEvent();
+            Console.WriteLine(menu_goals());
             Console.Write("Which goal would you like to set:");
             int inputUser = int.Parse(Console.ReadLine());
             if (inputUser == 1){
@@ -58,6 +37,7 @@ Please select one of the options:
             Console.WriteLine(finance.financialTips());
         } else if(_userInput == 3){
             Console.WriteLine("Saving data....");
+            animation.Spinning();
             Console.WriteLine("In order to save your data you most put an amount in all the requirements (or the program could fail)");
             Console.WriteLine("Do you still want to continue? Y/N: ");
             string answer = Console.ReadLine();
@@ -71,7 +51,7 @@ Please select one of the options:
             }
         } else if (_userInput == 4){
             //program ending
-            Console.WriteLine("Thank you for your time :) ");
+            Console.WriteLine($"Thank you {userName} for your time :) ");
             // Ending the loop so the program end.
             _continue = false;
         }
@@ -80,8 +60,33 @@ Please select one of the options:
 
     }
 
+public string Menu_string(){
+    string _menu = $@"
 
+Menu Options 
+===============================================
+Please select one of the following options: (Please only enter the number).
+    
+1.- Set a Saving Goal
+2.- Learn about financial education 
+3.- Saving Data
+4.- End Program
+    ";
+    return _menu;
+}
 
+public string menu_goals(){
+    string menuFunds =  $@"
+Please select one of the options:
+===============================================
+(Remember to only enter the number of the Item)
+
+1.- Vacations Fund
+2.- Emergency Fund
+
+        ";
+    return menuFunds;
+}
 }
 
 

@@ -1,6 +1,6 @@
 using System;
 
-public class SavingGoals{
+public class Goals{
 
     
 //This function will display the warning about the emergency found
@@ -19,7 +19,13 @@ public class SavingGoals{
         return vacation_found;
     }
 
-        // adding the quantity already invest with the new quantity
+    public int FundAdding(int previousQuantity){
+        Console.WriteLine("How much would you like to invest?: ");
+        int newQuantity = int.Parse(Console.ReadLine());
+        int totalQuantity = previousQuantity + newQuantity;
+        return totalQuantity;
+    }
+
 }
 
 

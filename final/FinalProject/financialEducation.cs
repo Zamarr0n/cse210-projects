@@ -13,13 +13,6 @@ public class financialEducation{
             Learn about the stock market or investments:  {stock_market}
             What is an Emergency Found?  {emergency_fund}
         ";
-        // Console.WriteLine("Welcome!!");
-        // Console.WriteLine(" ");
-        // Console.WriteLine("Here you will receive sources for personal finances :) ");
-        // Console.WriteLine(" ");
-        // Console.WriteLine($"How to manage your expenses:  {expenses_article}");
-        // Console.WriteLine($"Learn about the stock market or investments:  {stock_market}");
-        // Console.WriteLine($"What is an Emergency Found?  {emergency_fund}");
         return recomendation;
     }
 
