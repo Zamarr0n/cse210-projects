@@ -25,7 +25,10 @@ public class Goals{
         int totalQuantity = previousQuantity + newQuantity;
         return totalQuantity;
     }
-
+    public int FundSubstraction(int previousQuantity, int minusQuantity){
+        int totalQuantity = previousQuantity - minusQuantity;
+        return totalQuantity;
+    }
 }
 
 

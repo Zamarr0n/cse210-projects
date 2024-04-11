@@ -8,14 +8,17 @@ class Program
         
         Console.WriteLine("Welcome to the Personal Finance Management");
         Console.WriteLine(" ");
-        Console.Write("Do you have previous information saved?: Y/N ");
+        Console.WriteLine("WARNING: This project is to help people record their data and expenses, this program is not finished due the short amount of time ");
+        Console.WriteLine(" I counted for developing it, so please follow the rules so the program wont crash when you want to save the data inside a file or  ");
+        Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------------------------------");
+        Console.Write("Do you have a .txt file?: Y/N ");
         char choice = Console.ReadLine().ToUpper()[0];
 
         if(choice == 'Y'){
-            Console.Write("Please enter your name: ");
+            Console.Write("Please enter the name of your file: ");
             string userName = Console.ReadLine();
-            userNameCheck previousUser = new userNameCheck(userName);
-            Console.WriteLine(previousUser);
+            userNameCheckk previousUser = new userNameCheckk();
+            previousUser.userNameCheck(userName);
             // function to display the menu for changes:
 
 

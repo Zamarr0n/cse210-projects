@@ -42,14 +42,16 @@ public class Menu{
             Console.WriteLine("Do you still want to continue? Y/N: ");
             string answer = Console.ReadLine();
             if(answer =="Y"){
-                // need all the parmeters to work
                 save.savingData(userName,salary, freelancing_earnings,rent,groceries, user_vacations, user_emergency);
             }else if (answer == "N"){
                 break;
             }else{
                 Console.WriteLine("Please enter a valid option.");
             }
-        } else if (_userInput == 4){
+        }else if (_userInput == 4){
+            Console.WriteLine("You cant withdraw money from you account right now");
+        } 
+        else if (_userInput == 5){
             //program ending
             Console.WriteLine($"Thank you {userName} for your time :) ");
             // Ending the loop so the program end.
@@ -70,7 +72,8 @@ Please select one of the following options: (Please only enter the number).
 1.- Set a Saving Goal
 2.- Learn about financial education 
 3.- Saving Data
-4.- End Program
+4.- Withdraw
+5.- End Program
     ";
     return _menu;
 }
@@ -81,7 +84,7 @@ Please select one of the options:
 ===============================================
 (Remember to only enter the number of the Item)
 
-1.- Vacations Fund
+1.- Savings Fund
 2.- Emergency Fund
 
         ";

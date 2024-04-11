@@ -1,10 +1,10 @@
 using System;
 
 
-public class userNameCheck{
+public class userNameCheckk{
+    private int savings;
 
-
-    public userNameCheck(string userName){
+    public void userNameCheck(string userName){
         Menu_Old_User menu = new Menu_Old_User();
         string filename = userName + ".txt";
 
@@ -39,6 +39,8 @@ public class userNameCheck{
             int total_expenses = rent_integer + groceries_integer;
             int total_savings_integer = int.Parse(total_savings);
 
+            // setSavings(vacation_fund_integer);
+
                 // ------------------------- New function to display data of previous user -------------------------
             Console.WriteLine($"Welcome to your Personal Finance Dashboard, {UserName}!");
             Console.WriteLine("Is nice to see you here again :) ");
@@ -60,7 +62,7 @@ public class userNameCheck{
             Console.WriteLine($"» Groceries: ${groceries_integer}");
             Console.WriteLine("Savings: ");
             Console.WriteLine($"» Emergency Found: ${emergency_fund_integer}");
-            Console.WriteLine($"» Vacation Found: ${vacation_fund_integer}");
+            Console.WriteLine($"» Savings: ${vacation_fund_integer}");
             Console.WriteLine(" ");
             Console.WriteLine("---------------------------------------------------------------------");
             Console.WriteLine("Set up your budget: ");
@@ -74,8 +76,32 @@ public class userNameCheck{
         }else{
             Console.WriteLine("User Name doesn´t exist, please Log in :) ");
         }
-    }
 
+    }
+    public int setSavings(string userName){  
+        Menu_Old_User menu = new Menu_Old_User();
+        string filename = userName + ".txt";
+
+        if(File.Exists(filename)){
+            string[] lines = System.IO.File.ReadAllLines(filename);
+
+            foreach (string line in lines)
+            {
+                //this separates the data " , ";
+            string[] parts = line.Split(",");
+            string vacation_fund = parts[6];
+            savings = int.Parse(vacation_fund);
+            return savings;
+            }
+        }else{
+            Console.WriteLine("Balance is missing....");
+
+        }
+        return savings;
+    }
+    public int getSavings(){
+        return savings;
+    }
 
 }
 

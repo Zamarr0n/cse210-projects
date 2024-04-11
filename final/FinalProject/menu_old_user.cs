@@ -8,8 +8,6 @@ public class Menu_Old_User : Menu {
     Goals Goal = new Goals();
     Saving save = new Saving();
     Animations spinning_animation = new Animations();
-
-
     bool _continue = true;
     private int new_user_vacations;
     private int new_user_emergency;
@@ -40,20 +38,36 @@ public class Menu_Old_User : Menu {
         } else if(_userInput == 3){
             Console.Write("Saving data....");
             spinning_animation.Spinning();
+            Console.WriteLine(" ");
+            Console.WriteLine("In order to save your data you most put an amount in all the requirements (or the program could fail)");
             Console.WriteLine("");
             Console.WriteLine("Do you still want to continue? Y/N: ");
             string answer = Console.ReadLine();
             if(answer =="Y"){
-                // need all the parmeters to work
                 Console.WriteLine("Please provide the name of your file: ");
                 string textFile = Console.ReadLine();
                 save.savingData(textFile,salary, freelancing_earnings,rent,groceries, new_user_emergency, new_user_vacations);
             }else if (answer == "N"){
                 break;
-            }else{
+            }
+            else{
                 Console.WriteLine("Please enter a valid option.");
             }
-        } else if (_userInput == 4){
+            }else if (_userInput == 4){
+                //implement function to withdraw money:
+                Console.WriteLine("WARNING: This money will be take from your savings and will not have any effect in the emergency funds");
+                Console.Write("Please enter the quantity of money you would like to withdraw: (Remember to only type whole numbers) ");
+                int answer = int.Parse(Console.ReadLine());
+                userNameCheckk parameter = new userNameCheckk();
+                int balance = parameter.setSavings(userName);
+                //parameter of withdraw is balance:
+                CheckingAccount withdraw = new CheckingAccount(balance);
+                withdraw.Withdraw(answer);
+                int final_balance = withdraw.GetBalance();
+                Console.WriteLine($"this is your total savings now: {final_balance}");
+                    new_user_vacations = Goal.FundSubstraction(user_vacations,answer);
+                    new_user_emergency = user_emergency;
+            } else if (_userInput == 5){
             //program ending
             Console.WriteLine($"Thank you {userName}!!  for your time :) ");
             Console.Write("...");
